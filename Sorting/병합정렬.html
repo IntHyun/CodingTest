@@ -84,7 +84,7 @@
       let 그룹하나 = 병합정렬(입력배열.slice(0, 중간값))
       // 중간값부터 마지막값까지 자르는 그룹둘의 경우 두번쨰 인자를 넣어주지 않아도 알아서 마지막까지 잘라줍니다.
       let 그룹둘 = 병합정렬(입력배열.slice(중간값))
-      console.log("hi")
+      console.log(그룹하나)
 
       // 아래와 같이 원소들이 남아있을때만 실행할 수 있도록 합니다.
       // 그 이유는 원소들이 남아있지 않을때에는 나머지 배열을 그냥 갖다붙이면 되기때문입니다.
@@ -108,6 +108,43 @@
     }
 
     console.log(병합정렬(입력값))
+
+    let arr = [5, 10, 66, 77, 54, 32, 11, 15]
+
+    function mergeSort(arr) {
+      let arrLength = arr.length
+      let middleValue = parseInt(arrLength / 2)
+      if (arrLength <= 1) {
+        return arr
+      }
+      let result = []
+
+      let groupOne = mergeSort(arr.slice(0, middleValue))
+      let groupTwo = mergeSort(arr.slice(middleValue))
+
+      console.log(groupOne)
+
+      while (groupOne.length != 0 && groupTwo.length != 0) {
+        if (groupOne[0] < groupTwo[0]) {
+          result.push(groupOne.shift())
+        } else {
+          result.push(groupTwo.shift())
+        }
+      }
+
+      while (groupOne.length != 0) {
+        result.push(groupOne.shift())
+      }
+
+
+      while (groupTwo.length != 0) {
+        result.push(groupTwo.shift())
+      }
+
+      return result
+    }
+
+    console.log(mergeSort(arr))
   </script>
 </body>
 
