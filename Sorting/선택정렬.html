@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 선택정렬 이론을 이용하여 해당 배열을 정렬된 배열안에 넣어보는 연습을 해보겠습니다.
+    // 선택정렬이란 해당배열에서 가장 작은값만을 골라 꺼내서 정렬된 배열안에 push를하는 방식을 말합니다.
+    let a = [10, 11, 9, 2, 3, 6, 5, 6]
+    let 정렬된배열 = []
+
+
+    // 먼저 이를 for문으로 구현해봅시다.
+    for (let i = 0; i < 8; i++) {
+      정렬된배열.push(Math.min.apply(null, a))
+      a.splice(a.indexOf(Math.min.apply(null, a)), 1)
+    }
+    console.log(정렬된배열)
+
+    // 위에서 사용된 Math.min.apply를 함수로 구현해보면 아래와 같이 구현할 수 있습니다.
+    let b = [10, 11, 9, 2, 3, 6, 5, 6]
+    let 정렬된배열2 = []
+
+    function min(arr) {
+      let m = arr[0]
+      for (const item of arr) {
+        if (item < m) {
+          m = item
+        }
+      }
+      return m
+    }
+
+    // 내가 만든 Math.min.apply 함수를 적용시켜 주면
+    for (let i = 0; i < 8; i++) {
+      정렬된배열2.push(Math.min.apply(null, b))
+      b.splice(b.indexOf(min(b)), 1)
+    }
+    console.log(정렬된배열2)
+
+  </script>
+</body>
+
+</html>
