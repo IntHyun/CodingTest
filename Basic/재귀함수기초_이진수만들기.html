@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 이진수 변환을 while문으로 구현해보겠습니다.
+    // 2    11     1    
+    // 2     5     1
+    // 2     2     0
+    // 2     1
+    let result = ""
+    let x = 11
+
+    while (true) {
+      if (x % 2 == 0) {
+        result += "0"
+      } else {
+        result += "1"
+      }
+      x = Math.floor(x / 2)
+      if (x == 1 || x == 0) {
+        result += String(x)
+        break;
+      }
+    }
+
+    console.log(result.split("").reverse().join(""))
+
+    // 이번에는 재귀함수를 활용하여 위의 식을 변환해보도록 하겠습니다.
+    // f(n)     n     result           최종
+    // f(11)    11    result + f(5)
+    // f(5)     5     result + f(2)
+    // f(2)     2     result + f(0)    
+
+    // function f(n) {
+    //   if (n == 1) {
+    //     return 1
+    //   } else if (n == 0) {
+    //     return 0
+    //   }
+    //   if (n % 2 == 1) {
+    //     return result += Math.floor(f(n / 2))
+    //   } else {
+    //     return result += Math.floor(f(n / 2))
+    //   }
+    // }
+
+    function f(n) {
+      if (n == 1 || n == 0) {
+        return String(n)
+      }
+      return f(Math.floor(n / 2)) + String(n % 2)
+    }
+
+    console.log(f(11))
+
+  </script>
+</body>
+
+</html>

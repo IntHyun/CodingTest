@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 피보나치 수열을 재귀함수로 구현해보도록 하겠습니다.
+    // 피보나치 수열이란? => 1 1 2 3 5 8 13 21 34 와 같이 두개의 숫자가 있을때 전항의 수와 전전항의 수를 더한값을 계속해서 이어나가는 수열
+    // 먼저 피보나치 수열을 for문으로 구현해보도록 하겠습니다.
+    let a = 1
+    let b = 1
+
+    for (let i = 0; i < 6; i++) {
+      let c = a + b
+      a = b
+      b = c
+    }
+    console.log(b)
+
+    // 이제 재귀함수를 활용하여 구현해보도록 하겠습니다
+    function f(n) {
+      if (n == 1 || n == 2) {
+        return 1
+      }
+
+      return f(n - 1) + f(n - 2)
+    }
+
+    console.log(f(7))
+
+    // 때에따라선 피보나치 수열과 같이 같은 연산을 여러번 반복하게 된다면 재귀함수적으로 푸는 것이 비효율적일 수도 있습니다.
+    // 왜냐면 결국 메모리적으로 보았을 때 이는 비효율적이기 때문이죠. 따라서 메모이제이션 기법을 활용하기도합니다.
+
+  </script>
+</body>
+
+</html>

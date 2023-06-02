@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<body>
+  <script>
+    let s = 0;
+    for (let i = 0; i < 101; i++) {
+      s += i
+    }
+
+    console.log(s)
+
+    // 순번 f(n)      n     return      최종
+    // 1   f(100)    100   100 + f(99)
+    // 2   f(99)     99    99 + f(98)
+    // 3   f(98)     98    98 + f(97)
+    // 4   f(97)     97    97 + f(96)
+    // ...   
+
+    //     f(5)      5     5 + 10      15
+    //     f(4)      4     4 + 6       10
+    //     f(3)      3     3 + 3       6
+    // 99  f(2)      2     3
+    // 드디어 마지막에 내가 내자신을 호출하지 않음으로써 리턴값이 1이됩니다.
+    // 이러한 것을 정렬조건이라 하는데 재귀함수에서 정렬조건이 존재하지 않으면 무한반복이 일어나게 됩니다.
+    // 100 f(1)      1      1           1
+
+
+
+    // function f(n) {
+    //   if (n <= 1) {
+    //     return 1
+    //   }
+    //   return parseInt(n + f(n - 1))
+    // }
+
+    // console.log(`재귀함수 : ${Number(f(100))}`)
+
+    function f(n) {
+      if (n <= 1) {
+        return 1
+      }
+      return n + f(n - 1)
+    }
+
+    console.log(f(100))
+
+    function t(n) {
+      if (n <= 1) {
+        return 1
+      }
+      return n * t(n - 1)
+    }
+
+    console.log(t(5))
+  </script>
+</body>
+
+</html>

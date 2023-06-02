@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // 재귀함수를 활용하여 문자열을 뒤집어 보겠습니다.
+  // 그전에 while문을 활용하여 이를 구현해보고 재귀함수로 바꾸어보도록 하겠습니다.
+  let result = ""
+  let x = "jeongsuhyun"
+
+  while (true) {
+    if (x.length == 1) {
+      result += x
+      break;
+    }
+
+    let y = x.split("")
+    result += String(y.pop())
+    x = y.join("")
+  }
+
+  console.log(result)
+
+  // 위에서 while문으로 구현한 것을 재귀함수로 구현해보도록 하겠습니다.
+  function f(n) {
+    if (n.length == 1) {
+      return n
+    }
+    return n[n.length - 1] + f(n.slice(0, n.length - 1))
+  }
+
+  console.log(f("문자열역순"))
+
+</script>
+
+</html>

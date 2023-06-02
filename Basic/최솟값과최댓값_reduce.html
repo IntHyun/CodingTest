@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = [6, 5, 4, 3, 2]
+
+    const reducer = (accumulator, currentvalue) => accumulator + currentvalue // 누적합
+    const reducerTwo = (accumulator, currentvalue) => accumulator - currentvalue  // 차 (reduce는 앞의값과 뒤의 값을 비교함을 알아보기 위해)
+    const reducerThree = (accumulator, currentvalue) => accumulator > currentvalue ? accumulator : currentvalue
+    const reducerFour = (accumulator, currentvalue) => accumulator < currentvalue ? accumulator : currentvalue
+
+    // console.log(a.reduce(reducer))
+    // console.log(a.reduce(reducerTwo))
+    // -8이 나오는 이유는 처음 값이 들어오면 6,5 => 1 그뒤 1이 accumlator가 되고 4가 currentvalue가 됩니다. 그 후 1 - 4 = -3 이되고 -3이 다시 accumaltor
+    //가 되고 그 다음 숫자인 3이 currentvalue가 됩니다 이와 같이 앞의값과 뒤의 값을 계속해서 비교할 수 있는 원리를 이용하ㅕㅇ 최솟값과 최댓값을 구할 수 있습니다.
+    // console.log(a.reduce(reducerThree))
+    // console.log(a.reduce(reducerFour))
+
+    let s = 0
+    let test = a.reduce((a, b) => a + b, 0)
+    console.log(test)
+  </script>
+</body>
+
+</html>
