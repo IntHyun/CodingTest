@@ -16,8 +16,8 @@
 // 시간복잡도는 고려하지 않고 문제의 답을 해결하였습니다.
 
 function solution(arr) {
-  let answer = arr;
   let sum = arr.reduce((a, b) => a + b, 0);
+  let flag = 0;
 
   for (let i = 0; i < 8; i++) {
     for (let j = i + 1; j < 9; j++) {
@@ -27,11 +27,14 @@ function solution(arr) {
         // 뒤에있던 배열들이 당겨지면서 내가 지워야할 원소 앞에있는 원소가 지워지게 됩니다.
         // 따라서 당겨진만큼 j의 숫자를 빼주도록하면 내가 원하는 숫자를 지울 수 있습니다.
         arr.splice(j - 1, 1);
+        flag = 1;
+        break;
       }
     }
+    if (flag === 1) break;
   }
   return arr;
 }
 
-let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
 console.log(solution(arr));
