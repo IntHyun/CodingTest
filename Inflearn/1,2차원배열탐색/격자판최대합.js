@@ -1,3 +1,5 @@
+// 격자판 최대합
+
 function solution(arr) {
   let answer = Number.MIN_SAFE_INTEGER;
   let n = arr.length;
