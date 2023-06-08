@@ -22,3 +22,5 @@ function solution(numbers, target) {
 
   return answer;
 }
+
+solution(numbers, target);
